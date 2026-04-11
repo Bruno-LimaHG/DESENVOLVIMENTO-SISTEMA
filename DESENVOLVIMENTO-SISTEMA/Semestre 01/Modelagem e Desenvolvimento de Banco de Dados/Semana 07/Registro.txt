@@ -1,0 +1,43 @@
+CREATE TABLE clientes (
+    id_cliente INT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(100),
+    endereco VARCHAR(255),
+    telefone VARCHAR(20)
+);
+
+INSERT INTO clientes (id_cliente, nome, email, endereco, telefone)
+VALUES (1, 'Bruno de Lima', 'brunolima@email', 'RUA dona maria', '11986000247');
+
+
+CREATE TABLE produtos (
+    id_produto INT PRIMARY KEY,
+    nome VARCHAR(100),
+    modelo VARCHAR(100),
+    preco VARCHAR(20), 
+    quantidade INT
+);
+
+INSERT INTO produtos (id_produto, nome, modelo, preco, quantidade)
+VALUES (1, 'FireTV', 'Amazon', 'R$899,00', 1);
+
+
+CREATE TABLE pedidos (
+    id_pedido INT PRIMARY KEY,
+    id_cliente INT,
+    id_produto INT,
+    quantidade INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+);
+
+INSERT INTO pedidos (id_pedido, id_cliente, id_produto, quantidade)
+VALUES (1, 1, 1, 2);
+
+SELECT * FROM clientes;
+
+
+SELECT * FROM produtos;
+
+
+SELECT * FROM pedidos;
